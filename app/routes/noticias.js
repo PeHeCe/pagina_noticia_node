@@ -1,13 +1,11 @@
-module.exports = function(appplication){
+module.exports = function(application){
 
-    appplication.get('/noticias', function(req, res){
+    application.get('/noticias', function(req, res){
+        application.app.controllers.noticias.noticias(application, req, res);
+    });
 
-        var connection = appplication.config.dbConnection();
-        var noticiasModel = new appplication.app.models.NoticiasDAO(connection);
-
-        noticiasModel.getNoticias(function(error, result){
-            res.render("noticias/noticias", {noticias : result});
-        });
+    application.get('/noticia', function(req, res){
+        application.app.controllers.noticias.noticia(application, req, res);
     });
         
 };    
