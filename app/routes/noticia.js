@@ -9,4 +9,4 @@ module.exports = function(application){
             res.render("noticias/noticia", {noticias : result});
         });
     });
-};    
+};   
